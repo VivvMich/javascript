@@ -130,3 +130,126 @@ function division(nbra, nbrb) {
 }
 
 console.log(division(nombreA,nombreB))
+
+// version naïve
+
+function isEven(nbr) {
+    if ( nbr % 2 == 0){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+// version optimisée
+
+function isEven(nbr) {
+    return nbr % 2 == 0;
+}
+
+console.log(isEven(47))
+
+// changement de classe
+
+// GetElementsByClassName -> retourne toujour un tableau, même
+// si il y a q'un seul élément.
+// const red = document.getElementsByClassName('red')[0];
+const red = document.querySelector('.red');
+red.className = "blue"; // à éviter
+red.classList.add("gras");
+red.classList.remove("blue")
+red.classList.add("red");
+console.log(red)
+
+//EXERCICE
+// Faire une fonction 
+// replaceC(element_a_cible, ancienne_class, la nouvelle class)
+
+// <a href="#" class="btn btn-primary">Envoyer</a>
+
+//replaceC(<a>, "btn-primary", "btn-danger")
+// <a href="#" class="btn btn-danger">Envoyer</a>
+
+//faire le corps de la fonction, cette fonction ne retourne rien
+
+function replaceC(target, oldClass, newClass) {
+    const t = document.querySelector(target);
+    if ( oldClass !== newClass){
+        if( t.classList.contains(oldClass)){
+            t.classList.remove(oldClass);
+            t.classList.add(newClass)
+        }else{
+            console.error("La classe n'existe pas dans l'element " + target)
+        }
+    }else{
+        console.error("Vous voulez remplacer la class par elle même.")
+    }
+}
+
+ replaceC("#exo", "autruche", "green")
+ 
+ /*
+    Créez une fonction qui :
+        demande la saisie d'un rayon ;
+        retourne !!!!!!!!!!!! la surface du cercle de ce rayon
+        rajouter comme argument, un bool qui se nomme isCircle, si isCircle est faux
+        faites la surface d'un carré à la place.
+ */
+
+        // la surface d'un cercle est de pi * R²
+
+        function surface(r, isCircle) {
+            if (isCircle){
+                return Math.PI * r ** 2;
+            }else {
+                return r ** 2 // c'est un carré
+            }
+        }
+
+
+        console.log(surface(5))
+
+
+        //EVENEMENTS
+
+        const likes = document.getElementById('likes');
+        const btn = document.querySelector('.btn');
+        let likesNumber = 0
+
+        btn.addEventListener("click", function() {
+            likesNumber++;
+            likes.innerHTML = likesNumber;
+            this.classList.toggle("pink");
+            this.classList.toggle("chartreuse");
+        })
+
+        //Exercice faites un mode jour/nuit !
+
+        const jour = document.getElementById('jour-nuit-toggle');
+        const body = document.body;
+
+        jour.addEventListener("click", function() {
+            body.classList.toggle("black");
+            body.classList.toggle("white");
+        })
+
+
+        // Timers
+        // Le setTimout dans cette exemple au bout de 5 secondes (5000ms)
+        // la fonction anonyme sera traitée ( le console log envoyé )
+        setTimeout(function(){
+            console.log("coucou !!")
+        }, 5000)
+
+        setInterval(function() {
+            console.log("EXTERMINATE !!!!")
+        }, 2000)
+
+        // faire un lorem ipsum dans un <p> et toute les 3 secondes il changera de taille
+        // la  taille initiale est de 1em et la taille d'apres est de 3 em et vice versa
+
+        const text = document.getElementById('text')
+        setInterval(function() {
+            text.classList.toggle("text-tres-tres-gros")
+            text.classList.toggle("text-pas-gros")
+        }, 1000)

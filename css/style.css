@@ -2,3 +2,61 @@
     color: gray;
     font-style: italic;
 }
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.green {
+    color: green
+}
+
+.gras {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 5rem
+}
+
+.btn {
+    padding: 2em;
+    border-radius: 30px;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.chartreuse {
+    background-color: chartreuse;
+}
+
+.center {
+    text-align: center;
+}
+
+#likes {
+    display: inline-block;
+    margin-left: 2em;
+    font-size: 3em;
+}
+
+.black {
+    background-color: black;
+}
+
+.white {
+    background-color: aliceblue;
+}
+
+.text-pas-gros {
+    font-size: 1em;
+}
+
+.text-tres-tres-gros {
+    font-size: 3em;
+}
+
